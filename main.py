@@ -7,7 +7,12 @@ WEDDING = "Married Friday."
 
 
 def assemble_story() -> str:
-    return BURIAL + " " + WEDDING + "\n"
+    text = BURIAL + " " + WEDDING + "\n"
+    # The bounty is a six-word story: enforce the word count before
+    # anything is written.
+    words = text.split()
+    assert len(words) == 6, f"expected 6 words, got {len(words)}"
+    return text
 
 
 os.makedirs("/output", exist_ok=True)
